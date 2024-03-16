@@ -1,9 +1,9 @@
 import React from 'react';
 import Hero from '../hero/Hero';
 
-const Home = ({anime}) => {
+const Home = ({animes}) => {
     return (
-        <Hero anime = {anime}/>
+        <Hero animes = {animes}/>
     )
 }
 export default Home

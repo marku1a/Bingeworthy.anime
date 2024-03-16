@@ -1,4 +1,4 @@
-import React, { useState, useRef, useMemo, useCallback, useEffect } from 'react';
+import React, { useState } from 'react';
 import './Hero.css';
 import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
@@ -7,7 +7,7 @@ import { faChevronLeft, faChevronRight, faCirclePlay } from '@fortawesome/free-s
 import {Link, useNavigate} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
-const Hero = ({anime}) => {
+const Hero = ({animes}) => {
 
     const navigate = useNavigate();
     function reviews(animeId) {
@@ -20,7 +20,7 @@ const Hero = ({anime}) => {
     
     const handleNext = () => {
         setAutoPlay(false);
-        const currentAnime = anime[currentIndex % anime.length];
+        const currentAnime = animes[currentIndex % animes.length];
         setCurrentIndex((prevIndex) => (prevIndex + 1) % currentAnime.backdrops.length);
         setTimeout(() => {
             setAutoPlay(true);
@@ -29,7 +29,7 @@ const Hero = ({anime}) => {
 
     const handlePrevious = () => {
         setAutoPlay(false);
-        const currentAnime = anime[currentIndex % anime.length];
+        const currentAnime = animes[currentIndex % animes.length];
         setCurrentIndex((prevIndex) => (prevIndex === 0 ? currentAnime.backdrops.length - 1 : prevIndex - 1));
         setTimeout(() => {
             setAutoPlay(true);
@@ -40,18 +40,17 @@ const Hero = ({anime}) => {
         <div className="anime-carousel-container">
             <Carousel navButtonsAlwaysVisible={true} navButtonsProps={{
         style: {
-          width: '40px', /* Set width between 30-40px */
-          height: '200px', /* Adjust height based on padding/margin */
+          width: '40px', 
+          height: '200px', 
           marginTop: '-50px',
           backgroundColor: 'rgba(255, 255, 255, 0.07)',
           borderRadius: 0,
           scale: '10px',
-          /* Add other styles as needed */
         },
       }}>
    
                 {
-                    anime?.map((anime) =>{
+                    animes?.map((anime) =>{
                         return(
                             <Paper key={anime.imdbId} className="navButtonsProps">
                                 <div className="anime-card-container">
@@ -91,8 +90,7 @@ const Hero = ({anime}) => {
                     })
                 }
             </Carousel>
-          
-        </div>
+            </div>
     )
 }
 export default Hero

@@ -1,11 +1,14 @@
+import React, { useContext } from 'react';
+import { AuthContext } from '../authentication/AuthContext';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDisplay} from "@fortawesome/free-solid-svg-icons";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import Container from "react-bootstrap/Nav";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
-const Header = ({ isLoggedIn, handleLogout }) => {
-    console.log("isLoggedIn:", isLoggedIn);
+const Header = () => {
+    const { currentUser, isAuthenticated  } = useContext(AuthContext);
+    
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
             <Container fluid>
@@ -19,17 +22,18 @@ const Header = ({ isLoggedIn, handleLogout }) => {
                         style={{maxHeight: '100px'}}
                         navbarScroll
                     >
-                    <NavLink className="nav-link" to="/">Home</NavLink>
+                    <NavLink className="nav-link" to="/" >Home</NavLink>
                     <NavLink className="nav-link" to="/watchList">Watch List</NavLink>
                     </Nav>
-                    {isLoggedIn ? (
+                    {isAuthenticated ? (
                         <>
-                            <Button onClick={handleLogout} variant="outline-info" className="me-2">Logout</Button>
+                          <p className="me-2">Welcome, {currentUser}!</p> 
+                          <Button as={NavLink} to="/Logout" variant="outline-info" className="me-2">Logout</Button>
                         </>
-                    ) : (
+                      ) : (
                         <>
-                            <Button as={Link} to="/Login" variant="outline-info" className="me-2">Login</Button>
-                            <Button as={Link} to="/Registration" variant="outline-info" className="me-2">Register</Button>
+                          <Button as={NavLink} to="/Login" variant="outline-info" className="me-2">Login</Button>
+                          <Button as={NavLink} to="/Registration" variant="outline-info" className="me-2">Register</Button>
                         </>
                     )}
                 </Navbar.Collapse>
