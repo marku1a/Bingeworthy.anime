@@ -14,5 +14,27 @@ body {
 .poster-img {
     width: 100%;
     height: auto; 
-    max-height: 1000px; 
+    
 }
+
+.poster-container {
+    position: relative; /* Required for some browsers */
+    width: 500px; /* Adjust width as needed */
+    height: 800px; /* Adjust height as needed */
+    aspect-ratio: 9 / 16; /* Assuming 1080x1920 posters (adjust if different) */
+    overflow: hidden; /* Hide overflow if image doesn't fit perfectly */
+  }
+
+.reviews {
+    max-height: 100px;
+    max-width: 600px;
+    white-space: pre-wrap;
+    word-wrap:break-word;
+    overflow-y: auto;
+    overflow-x:hidden;
+
+}
+.review-container .row {
+    display: flex; /* Enable flexbox for two-column layout */
+  }
+

@@ -1,0 +1,47 @@
+body {
+    background-color: black;
+    color: white;
+  }
+  
+  .reg-form {
+    margin: 50px auto;
+    padding: 20px;
+    width: 300px;
+    background-color: #2e2e2e;
+    border-radius: 5px;
+  }
+  
+  .reg-form input[type="text"],
+  .reg-form input[type="email"],
+  .reg-form input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+  }
+  
+  .reg-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #0dcaf0;
+    color: #fff; 
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .reg-form button:hover {
+    background-color:  #0aa2c1;
+  }
+
+  .error-message {
+    color: red;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: -10px;
+  }
