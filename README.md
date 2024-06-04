@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Bingeworthy.anime
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bindgeworthy Anime is a fullstack web application designed for anime enthusiasts to explore and review various "bingeworthy" anime titles. 
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Demo](#demo)
 
-### `npm start`
+- [Features](#features)
+- [Technical Stack](#technical-stack)
+- [Getting Started](#getting-started)
+- [Components and hooks](#components-and-hooks)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
+![Bingeworty anime pic](https://github.com/marku1a/Bingeworthy.anime/assets/122821687/d7f9cf25-62f5-4190-99ab-0734ba9ef5de)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- **Home:** Browse a dynamic slideshow of various anime titles with navigation buttons to switch between slides.
+- **Anime List:** View a comprehensive list of all available anime.
+- **Reviews:** Explore reviews of selected anime and write your own reviews (for registered users).
+- **Trailer:** Watch trailers for the anime titles.
+- **Authentication:** Register for an account or log in with existing credentials.
+- **Authorization:** Registered users can read and write reviews, while administrators have additional privileges for CRUD anime entries.
+- **Persistent Login:** Stay logged in across sessions with JWT-based authentication.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technical Stack
 
-### `npm run build`
+- **Frontend:** React.js
+- **Backend:** Java/Spring boot ([Anime-API](https://github.com/marku1a/Anime-API))
+- **Database:** MongoDB
+- **Authentication:** JWT
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Clone Repository:**  
+   ```sh
+   git clone https://github.com/marku1a/bindgeworthy-anime.git
+   cd bindgeworthy-anime
+- **Install dependencies:**
+   ```sh
+   npm install
+- **Configure backend:** refer to backend instructions.
+- **Start the development server:**
+   ```sh
+   npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Components and hooks
 
-### `npm run eject`
+- **App.js:** The main application component that manages routing.
+- **Layout.js:** The primary layout component that holds the header and main content area.
+- **Header.js:** Displays home/anime list navigation, login/register/logout options.
+- **Home.js:** Renders the anime slideshow and other homepage elements.
+- **Trailer.js:** Displays a trailer for a specific anime based on the provided YouTube ID.
+- **Hero.js:** Renders the anime slideshow with navigation buttons.
+- **Registration.js:** Handles user registration.
+- **Login.js:** Handles user login.
+- **RequireAuth.js:** Higher-order component to protect routes based on user roles.
+- **PersistLogin.js:** Handles persistent login functionality with JWT.
+- **useAuth.js:** Custom hook for managing user authentication state, role, access token.
+- **useAxiosPrivate.js:** Custom hook for managing API calls that require an access token.
+It refreshes the access token if it has expired and then executes the desired API call with the updated token.
+- **useRefreshToken.js:** Custom hook for managing the refresh token mechanism. It sends the HTTP-only,
+secure cookie containing the refresh token to the backend, facilitating the retrieval of a new access token to maintain user authentication seamlessly.
+- **AnimeList.js:** Displays the list of all anime and allows fetching new data.
+- **AnimeCreate.js:** Provides functionality for admins to create new anime entries.
+- **AnimeUpdate.js:** Allows admins to edit existing anime information.
+- **axios.js:** Configures axios for making API calls to the backend.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to explore the code and contribute to the project. If you have any questions or need further information, don't hesitate to reach out!
