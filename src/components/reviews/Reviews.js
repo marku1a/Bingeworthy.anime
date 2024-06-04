@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import ReviewForm from './ReviewForm';
-import axios from '../../api/axios';
+import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import useAuth from '../../hooks/useAuth';
 import './Review.css';
 
@@ -10,8 +10,10 @@ const Reviews = ({getAnimeData, anime}) => {
     const reviewText = useRef();
     const { animeId } = useParams();
     const { auth } = useAuth();
-    const { isAuthenticated, access_token, userId } = auth;
+    const { isAuthenticated, userId } = auth;
+    const axiosPrivate = useAxiosPrivate();
     const [reviews, setReviews] = useState([]);
+
 
     useEffect(()=>{
         getAnimeData(animeId);
@@ -20,11 +22,7 @@ const Reviews = ({getAnimeData, anime}) => {
     useEffect(() => {
         const fetchReviews = async () => {
             try {
-                const response = await axios.get(`/anime-reviews/${animeId}`,{
-                    headers: {
-                        Authorization: `Bearer ${auth.access_token}`
-                    }
-                });
+                const response = await axiosPrivate.get(`/anime-reviews/${animeId}`);
                 setReviews(response.data || []);
             } catch (err) {
                 console.error("Error fetching reviews:", err);
@@ -41,14 +39,10 @@ const Reviews = ({getAnimeData, anime}) => {
         
         if(isAuthenticated) {
             try {
-                const response = await axios.post("/anime-reviews", {
+                const response = await axiosPrivate.post("/anime-reviews", {
                     reviewBody: rev.value,
                     imdbId: animeId,
                     userId
-                }, {
-                    headers: {
-                        Authorization: `Bearer ${auth.access_token}`
-                    }
                 });
         
                 const newReview = {

@@ -1,0 +1,62 @@
+.anime-list-container {
+  padding: 20px;
+}
+
+.create-anime-button-container {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.anime-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.anime-list-card {
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 200px;
+  text-align: center;
+}
+
+.anime-list-poster {
+  position: relative;
+}
+
+.anime-list-poster img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #444;
+}
+
+.anime-list-actions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.anime-list-card:hover .anime-list-actions {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.anime-list-actions button {
+  margin: 5px 0;
+  width: 80%;
+}
+
+.anime-list-title {
+  padding: 10px;
+  color: white;
+}

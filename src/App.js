@@ -13,7 +13,9 @@ import useAuth from './hooks/useAuth';
 import RequireAuth from './components/authentication/RequireAuth';
 import PersistLogin from './components/authentication/PersistLogin';
 import axios from './api/axios';
-
+import AnimeList from './components/anime/AnimeList';
+import AnimeCreate from './components/anime/AnimeCreate';
+import AnimeUpdate from './components/anime/AnimeUpdate';
 
 
 const ROLES = {
@@ -40,7 +42,13 @@ function App() {
 
   const getAnimeData = async (animeId) => {
     try {
-      const response = await axios.get(`/anime/${animeId}`);
+      const response = await axios.get(`/anime/${animeId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${auth.access_token}`
+          }
+        }
+      );
       const singleAnime = response.data;
       setAnime(singleAnime);
 
@@ -66,11 +74,12 @@ function App() {
               <Route path="/Trailer/:ytTrailerId" element={<Trailer />}></Route>
                 <Route element={<RequireAuth allowedRoles={[ROLES.User, ROLES.Admin]} />}>
                   <Route path="/Reviews/:animeId" element={ 
-                    <Reviews
-                      getAnimeData={getAnimeData}
-                      anime={anime}
-                    />
-                  }/>                
+                    <Reviews getAnimeData={getAnimeData} anime={anime}/>}/> 
+                </Route>
+                <Route path="/anime-list" element={<AnimeList animes={animes} getAnimes={getAnimes} />}></Route>
+                <Route element={<RequireAuth allowedRoles={ROLES.Admin} />}>
+                  <Route path="/anime/create" element={<AnimeCreate getAnimes={getAnimes} />}></Route>
+                  <Route path="/anime/:id/edit" element={<AnimeUpdate getAnimes={getAnimes} />}></Route>             
               </Route>
             </Route>
             <Route path="/Login" element={<Login />}></Route>

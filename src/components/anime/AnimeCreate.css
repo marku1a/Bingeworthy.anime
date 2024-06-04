@@ -1,0 +1,36 @@
+.anime-create-container {
+    color: white;
+    background-color: #2e2e2e;
+    margin: 50px auto;
+    padding: 12px;
+    max-width: 700px;
+    width: 90%;
+    border-radius: 8px;
+}
+.create-form label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+.create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.create-form button {
+    padding: 12x;
+    margin-top: 15px;
+    width: 20%;
+    max-width: 500px;
+    background-color: #0dcaf0;
+    color: #fff; 
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.create-form button:hover {
+    background-color: #0aa2c1;
+}
+
+

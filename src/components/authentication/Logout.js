@@ -16,6 +16,7 @@ const Logout = () => {
         }
       });
       setAuth({});
+      localStorage.removeItem("persist");
       navigate('/');
     } catch (error) {
       console.error(error);
