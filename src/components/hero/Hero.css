@@ -24,21 +24,32 @@
     background-size: cover;
     background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(0,0,0,1)), var(--img);
 }
-/*Poster/title/buttons*/
+
 .anime-details{
     position: absolute;
     top: 200px;
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+
 }
 .anime-title{
-    color: white;
+    color: #e7f8fc;
     display: flex;
     align-items: center;
+    justify-content: center;
+    font-weight: 600;
     font-size: 2.5rem;
+    font-family: cursive;
     letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 310px; 
+    min-width: 310px;
+    word-wrap: break-word;
 }
+
 
 .anime-button-container{
     display:flex;
@@ -54,7 +65,7 @@
 .play-button-icon{
     padding: 0px;
     margin: 0px;
-    color: lightblue;
+    color: #add8e6;
     font-size: 3rem;
     transition: 0.25s;
     cursor: pointer;
@@ -63,22 +74,12 @@
     font-size: 4rem;
     color: rgb(196, 248, 255);
 }
-.review-button {
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
 .next-button-icon-container{
     padding: 8px;
     background-color: rgba(255, 255, 255, 0.1);
 }
 .next-button-icon{
-    color: lightblue;
+    color: #add8e6;
     font-size: 3rem;
     transition: 0.25s;
     cursor: pointer;
@@ -101,11 +102,34 @@
     font-size: 4rem;
     color: rgb(196, 248, 255);
 }
+.review-button {
+    color: #add8e6;
+    background-color: #add8e600;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #add8e6;
+    border-width: 2px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s;
+}
+.review-button:hover {
+    transform: scale(1.15);
+    color: #c4f8ff;
+    transition: transform 0.3s;
+}
 
 @media only screen and (max-width: 800px) {
     .movie-detail{
         flex-direction: column;
         align-items: center;
         top: 20px;
-}
+}   
+    .anime-button-container{
+        padding-top: 30px;
+    }
 }

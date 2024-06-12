@@ -14,13 +14,14 @@ import RequireAuth from './components/authentication/RequireAuth';
 import PersistLogin from './components/authentication/PersistLogin';
 import axios from './api/axios';
 import AnimeList from './components/anime/AnimeList';
+import UserList from './components/users/UserList';
 import AnimeCreate from './components/anime/AnimeCreate';
 import AnimeUpdate from './components/anime/AnimeUpdate';
 
 
 const ROLES = {
-  'User': 'USER',
-  'Admin': 'ADMIN'
+  'User': 'ROLE_USER',
+  'Admin': 'ROLE_ADMIN', 
 }
 
 function App() {
@@ -79,7 +80,8 @@ function App() {
                 <Route path="/anime-list" element={<AnimeList animes={animes} getAnimes={getAnimes} />}></Route>
                 <Route element={<RequireAuth allowedRoles={ROLES.Admin} />}>
                   <Route path="/anime/create" element={<AnimeCreate getAnimes={getAnimes} />}></Route>
-                  <Route path="/anime/:id/edit" element={<AnimeUpdate getAnimes={getAnimes} />}></Route>             
+                  <Route path="/anime/:id/edit" element={<AnimeUpdate getAnimes={getAnimes} />}></Route>  
+                  <Route path="/user-list" element={<UserList/>}></Route>         
               </Route>
             </Route>
             <Route path="/Login" element={<Login />}></Route>

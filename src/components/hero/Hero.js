@@ -5,7 +5,6 @@ import { Paper } from '@mui/material';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight, faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import {Link, useNavigate} from "react-router-dom";
-import Button from 'react-bootstrap/Button';
 
 const Hero = ({animes}) => {
 
@@ -14,31 +13,22 @@ const Hero = ({animes}) => {
         navigate(`/Reviews/${animeId}`);
     }
     
-    const [autoPlay, setAutoPlay] = useState(true);
     const [currentIndex, setCurrentIndex] = useState(0);
   
     
     const handleNext = () => {
-        setAutoPlay(false);
         const currentAnime = animes[currentIndex % animes.length];
         setCurrentIndex((prevIndex) => (prevIndex + 1) % currentAnime.backdrops.length);
-        setTimeout(() => {
-            setAutoPlay(true);
-        }, 4000); 
     };
 
     const handlePrevious = () => {
-        setAutoPlay(false);
         const currentAnime = animes[currentIndex % animes.length];
         setCurrentIndex((prevIndex) => (prevIndex === 0 ? currentAnime.backdrops.length - 1 : prevIndex - 1));
-        setTimeout(() => {
-            setAutoPlay(true);
-        }, 4000); 
     };
     
     return (
         <div className="anime-carousel-container">
-            <Carousel navButtonsAlwaysVisible={true} navButtonsProps={{
+            <Carousel navButtonsAlwaysVisible={true} interval={7000} navButtonsProps={{
         style: {
           width: '40px', 
           height: '200px', 
@@ -79,7 +69,7 @@ const Hero = ({animes}) => {
                                                     icon={faChevronRight}/>
                                                 </div>
                                                 <div className="movie-review-button-container">
-                                                    <Button variant="info" onClick={() => reviews(anime.imdbId)}>Reviews</Button>
+                                                    <button className="review-button" onClick={() => reviews(anime.imdbId)}>Reviews</button>
                                                 </div>
                                             </div>
                                         </div>

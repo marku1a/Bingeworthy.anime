@@ -1,15 +1,9 @@
 .anime-list-container {
-  padding: 20px;
+  padding: 25px;
 }
-
-.create-anime-button-container {
-  margin-bottom: 20px;
-  text-align: right;
-}
-
 .anime-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 20px;
 }
 
@@ -17,21 +11,17 @@
   background-color: #1c1c1c;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  width: 200px;
+  box-shadow: 0 4px 5px #ff06064d;
+  width: 205px;
   text-align: center;
 }
-
 .anime-list-poster {
   position: relative;
 }
-
 .anime-list-poster img {
   width: 100%;
   height: auto;
-  border-bottom: 1px solid #444;
 }
-
 .anime-list-actions {
   position: absolute;
   top: 0;
@@ -45,18 +35,49 @@
   opacity: 0;
   transition: opacity 0.3s;
 }
-
+.create-anime-button-container {
+  text-align: right;
+}
+.create-anime-button {
+  border-radius: 8px !important;
+  margin-left: auto;
+}
 .anime-list-card:hover .anime-list-actions {
   opacity: 1;
   background: rgba(0, 0, 0, 0.6);
 }
-
 .anime-list-actions button {
   margin: 5px 0;
   width: 80%;
+  border-radius: 15px;
+}
+.anime-list-title {
+  height: 60px;
+  align-content: center;
+  color: white;
+  overflow:auto;
+}
+.controls-container {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+.controls-container select {
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #444; 
+  border-radius: 8px; 
+  background-color: #2e2e2e; 
+  color: #fff; 
+  width: 100%;
+  max-width: 150px;
+  cursor: pointer;
+}
+.controls-container select:focus {
+  border-color: #0dcaf0;
+  box-shadow: none;
+}
+.controls-container select:hover {
+  border-color: #0dcaf0;
 }
 
-.anime-list-title {
-  padding: 10px;
-  color: white;
-}

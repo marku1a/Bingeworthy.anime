@@ -45,3 +45,9 @@ body {
     margin-top: 5px;
     margin-bottom: -10px;
   }
+  .success-message {
+    color: green;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: -10px;
+  }

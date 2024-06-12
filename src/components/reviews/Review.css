@@ -1,40 +1,53 @@
 body {
     background-color: black !important;
 }
+
 .review-container {
     background-color: black;
     padding: 20px;
     color: white;
 }
-  
+
 .poster-col {
     max-width: 500px; 
 }
-  
+
 .poster-img {
     width: 100%;
     height: auto; 
-    
 }
 
 .poster-container {
-    position: relative; /* Required for some browsers */
-    width: 500px; /* Adjust width as needed */
-    height: 800px; /* Adjust height as needed */
-    aspect-ratio: 9 / 16; /* Assuming 1080x1920 posters (adjust if different) */
-    overflow: hidden; /* Hide overflow if image doesn't fit perfectly */
-  }
+    position: relative; 
+    width: 500px; 
+    height: 800px;
+    aspect-ratio: 9 / 16; 
+    overflow: hidden;
+}
+
+.reviews-wrapper {
+    max-height: 600px;
+    overflow-y: scroll;
+    padding-right: 10px; 
+}
 
 .reviews {
     max-height: 100px;
+    min-height: 50px;
     max-width: 600px;
     white-space: pre-wrap;
-    word-wrap:break-word;
+    word-wrap: break-word;
     overflow-y: auto;
-    overflow-x:hidden;
-
+    overflow-x: hidden;
 }
-.review-container .row {
-    display: flex; /* Enable flexbox for two-column layout */
-  }
 
+.review-container .row {
+    display: flex; 
+}
+
+.review-container {
+    padding: 20px;
+}
+.char-counter {
+    color: white !important;
+}

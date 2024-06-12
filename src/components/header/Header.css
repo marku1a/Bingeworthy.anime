@@ -4,6 +4,22 @@
 .welcome-name {
     font-size: 16px;
     font-weight: bold;
-    padding-left: 20px;
+    padding-left: 15px;
+}
+.nav-custom .link-custom {
+    padding-top: 1.5px;
+    padding-bottom: 0px;
+    font-size: 105%;
+}
+.auth-custom {
+    padding-left: 15px;
+}
+.nav-2 {
+    align-items: center;
 }
 
+@media (max-width: 977px) {
+    .auth-custom {
+        justify-content: center;
+    }
+}

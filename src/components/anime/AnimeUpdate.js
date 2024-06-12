@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
-import useAuth from '../../hooks/useAuth';
 import './AnimeUpdate.css';
 
 const AnimeUpdate = ({ getAnimes }) => {
 
-  const { auth } = useAuth();
+ 
   const navigate = useNavigate();
   const { id } = useParams();
   const axiosPrivate = useAxiosPrivate();

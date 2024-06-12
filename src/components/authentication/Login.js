@@ -1,6 +1,6 @@
 import React, { useState, useEffect  } from 'react';
 import useAuth from '../../hooks/useAuth';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import axios from '../../api/axios';
 
@@ -13,7 +13,6 @@ const Login = () => {
 
   const { setAuth, persist, setPersist } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
 
   
 
