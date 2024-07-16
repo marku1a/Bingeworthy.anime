@@ -26,9 +26,8 @@ const Login = () => {
       }, {
         withCredentials: true
       });
-      console.log('Response:', response);
       const { access_token, userId, role } = response.data;
-      setAuth({ email, userId, role, access_token, isAuthenticated: true });
+      setAuth({ userId, role, access_token, isAuthenticated: true });
       setEmail('');
       setPassword('');
       navigate('/');

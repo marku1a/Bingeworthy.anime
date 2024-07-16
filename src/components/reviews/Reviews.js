@@ -10,13 +10,21 @@ const Reviews = ({ getAnimeData, anime }) => {
     const reviewText = useRef();
     const { animeId } = useParams();
     const { auth } = useAuth();
-    const { isAuthenticated, userId } = auth;
+    const { userId } = auth;
     const axiosPrivate = useAxiosPrivate();
     const [reviews, setReviews] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     useEffect(() => {
-        getAnimeData(animeId);
-    }, []);
+        const fetchData = async () => {
+            setLoading(true); 
+            await getAnimeData(animeId);
+            setLoading(false); 
+        };
+
+        fetchData();
+    }, [animeId]);
 
     useEffect(() => {
         const fetchReviews = async () => {
@@ -66,7 +74,16 @@ const Reviews = ({ getAnimeData, anime }) => {
             <Row className="mt-2">
                 <Col className="poster-col">
                     <div className="poster-container">
-                        <img src={anime?.poster} alt="" className="poster-img" />
+                    {loading ? (
+                            <div className="loading-placeholder"></div>
+                        ) : (
+                            <img
+                                src={anime?.poster}
+                                alt=""
+                                className={`poster-img ${imageLoaded ? 'loaded' : ''}`}
+                                onLoad={() => setImageLoaded(true)}
+                            />
+                        )}
                     </div>
                 </Col>
                 <Col>
