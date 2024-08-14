@@ -81,3 +81,14 @@
   border-color: #0dcaf0;
 }
 
+@media only screen and (max-width: 800px) {
+  .anime-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .controls-container {
+    justify-content: center;
+  }
+}

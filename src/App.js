@@ -37,7 +37,7 @@ function App() {
       const response = await axios.get("/anime");
       setAnimes(response.data);
     } catch (err) {
-      console.error(err);
+      //console.error(err);
     }
   };
 

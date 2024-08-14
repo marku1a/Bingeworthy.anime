@@ -7,9 +7,8 @@
     padding-left: 15px;
 }
 .nav-custom .link-custom {
-    padding-top: 1.5px;
-    padding-bottom: 0px;
-    font-size: 105%;
+    padding: 10px 15px; 
+    font-size: 110%; 
 }
 .auth-custom {
     padding-left: 15px;
@@ -18,8 +17,12 @@
     align-items: center;
 }
 
-@media (max-width: 977px) {
+@media (max-width: 950px) {
     .auth-custom {
         justify-content: center;
+    }
+    .nav-custom .link-custom {
+        padding: 11px; 
+        font-size: 120%; 
     }
 }

@@ -12,12 +12,12 @@ const useRefreshToken = () => {
  
         const {userId, role, access_token} = response.data;
         setAuth(prev => {
-                if (prev.access_token === access_token) return prev; // Avoid unnecessary state update
+                if (prev.access_token === access_token) return prev; 
                 return { ...prev, userId, role, access_token, isAuthenticated: true };
             });
         return access_token;
         } catch (err) {
-          console.error('Error refreshing token:', err);
+          //console.error('Error refreshing token:', err);
           throw err;
         }
     };

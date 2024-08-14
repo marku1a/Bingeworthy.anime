@@ -1,31 +1,31 @@
-.anime-carousel-container{
+.anime-carousel-container {
     width: 99.2vw;
     background-color: black;
+    position: relative;
 }
-.anime-poster{
+.anime-poster {
     height: 350px;
-    border:1px solid lightblue;
+    border: 1px solid #add8e6;
     border-radius: 10px;
     overflow: hidden;
 }
-.anime-poster > img{
+.anime-poster > img {
     height: 100%;
     width: 100%;
 }
-.anime-card-container{
+.anime-card-container {
     height: 100vh;
     background-color: black;
-    
 }
-.anime-card{
+.anime-card {
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-image: linear-gradient(to bottom,rgba(0,0,0,0), rgba(0,0,0,1)), var(--img);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), var(--img);
 }
 
-.anime-details{
+.anime-details {
     position: absolute;
     top: 200px;
     display: flex;
@@ -33,9 +33,8 @@
     width: 100%;
     flex-wrap: wrap;
     text-align: center;
-
 }
-.anime-title{
+.anime-title {
     color: #e7f8fc;
     display: flex;
     align-items: center;
@@ -45,24 +44,23 @@
     font-family: cursive;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    max-width: 310px; 
+    max-width: 310px;
     min-width: 310px;
     word-wrap: break-word;
 }
 
-
-.anime-button-container{
-    display:flex;
+.anime-button-container {
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    width:300px;
+    width: 300px;
 }
-.play-button-icon-container{
+.play-button-icon-container {
     padding: 10px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
 }
-.play-button-icon{
+.play-button-icon {
     padding: 0px;
     margin: 0px;
     color: #add8e6;
@@ -70,35 +68,35 @@
     transition: 0.25s;
     cursor: pointer;
 }
-.play-button-icon:hover{
+.play-button-icon:hover {
     font-size: 4rem;
     color: rgb(196, 248, 255);
 }
-.next-button-icon-container{
+.next-button-icon-container {
     padding: 8px;
     background-color: rgba(255, 255, 255, 0.1);
 }
-.next-button-icon{
+.next-button-icon {
     color: #add8e6;
     font-size: 3rem;
     transition: 0.25s;
     cursor: pointer;
 }
-.next-button-icon:hover{
+.next-button-icon:hover {
     font-size: 4rem;
     color: rgb(196, 248, 255);
 }
-.previous-button-icon-container{
+.previous-button-icon-container {
     padding: 8px;
     background-color: rgba(255, 255, 255, 0.1);
 }
-.previous-button-icon{
+.previous-button-icon {
     color: #add8e6;
     font-size: 3rem;
     transition: 0.25s;
     cursor: pointer;
 }
-.previous-button-icon:hover{
+.previous-button-icon:hover {
     font-size: 4rem;
     color: rgb(196, 248, 255);
 }
@@ -122,14 +120,96 @@
     color: #c4f8ff;
     transition: transform 0.3s;
 }
-
+.gallery-button-icon-container {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+.gallery-button-icon {
+    color: #add8e6;
+    font-size: 3rem;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.gallery-button-icon:hover {
+    font-size: 4rem;
+    color: rgb(196, 248, 255);
+}
+.gallery-dialog-content {
+    background-color: black;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+}
+.gallery-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.gallery-image {
+    max-width: 100%;
+    max-height: 100vh;
+}
+.close-button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+.close-button-icon {
+    color: white;
+    font-size: 2rem;
+}
+.gallery-previous-button-container, .gallery-next-button-container {
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.gallery-previous-button-container {
+    left: 10px;
+}
+.gallery-next-button-container {
+    right: 10px;
+}
+.gallery-previous-button-icon, .gallery-next-button-icon {
+    color: #add8e6;
+    font-size: 3rem;
+    transition: 0.25s;
+}
+.gallery-previous-button-icon:hover, .gallery-next-button-icon:hover {
+    font-size: 4rem;
+    color: rgb(196, 248, 255);
+}
 @media only screen and (max-width: 800px) {
-    .movie-detail{
+    .anime-details {
         flex-direction: column;
         align-items: center;
-        top: 20px;
-}   
-    .anime-button-container{
+    }
+    .anime-button-container {
         padding-top: 30px;
+    }
+    .anime-title {
+        font-size: 2rem;
+        order: -1;
+        position: absolute;
+        top: -80px;
+        letter-spacing: 0px;
+        max-width: 85%;
+    }
+    .anime-poster {
+        margin-top: 20px;
+    }
+    .anime-card {
+        background-size: 50%vh;
+    }
+    .review-button {
+        margin: 0px;
     }
 }

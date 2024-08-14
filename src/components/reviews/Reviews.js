@@ -15,6 +15,8 @@ const Reviews = ({ getAnimeData, anime }) => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
     const [imageLoaded, setImageLoaded] = useState(false);
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -46,6 +48,8 @@ const Reviews = ({ getAnimeData, anime }) => {
 
       
         try {
+            setError(null);
+            setSuccess(null);
             const response = await axiosPrivate.post("/anime-reviews", {
                 reviewBody: rev.value,
                 imdbId: animeId,
@@ -58,12 +62,15 @@ const Reviews = ({ getAnimeData, anime }) => {
             };
 
             setReviews(prevReviews => [...prevReviews, newReview]);
-
+            setSuccess(response.data);
             rev.value = '';
-        } catch (err) {
-            console.error("Error adding review:", err);
+        } catch (error) {
+            if (error?.response?.data) {
+             setError(error.response.data);
+            } else {
+                setError("An error occurred while submitting the review.");
+            }
         }
-     
     };
 
     return (
@@ -90,7 +97,9 @@ const Reviews = ({ getAnimeData, anime }) => {
                     <>
                         <Row>
                             <Col>
-                                <ReviewForm handleSubmit={addReview} reviewText={reviewText} labelText="Write a Review!" />
+                                <ReviewForm handleSubmit={addReview} reviewText={reviewText} labelText="Write a Review!"/>
+                                {error && <p className="error-message">{error}</p>}
+                                {success && <p className="success-message">{success}</p>}
                             </Col>
                         </Row>
                         <Row>

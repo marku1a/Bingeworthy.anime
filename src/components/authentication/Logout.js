@@ -19,7 +19,7 @@ const Logout = () => {
       localStorage.removeItem("persist");
       navigate('/');
     } catch (error) {
-      console.error(error);
+      //console.error(error);
     }
   };
  

@@ -60,7 +60,7 @@ function Registration() {
         if (error.response) {
           setError(error.response.data);
         } 
-        console.error(error);
+        //console.error(error);
         setSuccess(null);
       }
     }
