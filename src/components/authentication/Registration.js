@@ -58,8 +58,10 @@ function Registration() {
 
       } catch (error) {
         if (error.response) {
-          setError(error.response.data);
-        } 
+          setError(error.response.data.message);
+        } else {
+          setError('An unexpected error occurred. Please try again.');
+        }
         //console.error(error);
         setSuccess(null);
       }
