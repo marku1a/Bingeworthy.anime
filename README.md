@@ -77,5 +77,5 @@ secure cookie containing the refresh token to the backend, facilitating the retr
 
 
 ---
-
+ 
 Feel free to explore the code and contribute to the project. If you have any questions or need further information, don't hesitate to reach out!
