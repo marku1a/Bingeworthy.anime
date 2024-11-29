@@ -21,7 +21,7 @@ Bindgeworthy Anime is a fullstack web application designed for anime enthusiasts
 
 
 
-
+ 
 ## Features
 
 - **Home:** Browse a dynamic slideshow of various anime titles with navigation buttons to switch between slides.
