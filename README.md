@@ -37,7 +37,7 @@ Bindgeworthy Anime is a fullstack web application designed for anime enthusiasts
 - **Frontend:** React.js
 - **Backend:** Java/Spring boot ([Anime-API](https://github.com/marku1a/Anime-API))
 - **Database:** MongoDB
-- **Authentication:** JWT
+- **Authentication:** JWT 
 
 ## Getting Started
 
